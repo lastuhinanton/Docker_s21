@@ -1,0 +1,20 @@
+services:
+  first:
+    build: first_container
+    ports:
+      - 81:80
+    networks:
+      mynetwork:
+        ipv4_address: 172.28.0.2
+  second:
+    build: second_container
+    ports:
+      - 8080:80
+      - 80:80
+    networks:
+      mynetwork:
+        ipv4_address: 172.28.0.3
+networks:
+  mynetwork:
+    name: cont_06
+    external: true
